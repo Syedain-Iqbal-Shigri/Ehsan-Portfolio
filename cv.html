@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ehsan Danish Meer — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:       #1a1a1a;
+    --ink-mid:   #3d3d3d;
+    --ink-soft:  #6b6b6b;
+    --rule:      #d4c9b8;
+    --accent:    #8b6f47;
+    --accent-lt: #f5f0e8;
+    --page-bg:   #fafaf8;
+    --sidebar:   #f2ede4;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { box-shadow: none; margin: 0; }
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8e4dc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: var(--ink);
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: var(--page-bg);
+    box-shadow: 0 8px 48px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── Accent stripe ── */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--accent) 0%, #c4a882 60%, #e0d5c3 100%);
+  }
+
+  /* ═══════════════════════ SIDEBAR ═══════════════════════ */
+  .sidebar {
+    background: var(--sidebar);
+    padding: 48px 28px 48px 32px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sidebar-name-block { text-align: left; }
+
+  .monogram {
+    width: 64px; height: 64px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+
+  .full-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+  }
+
+  .title-tag {
+    font-size: 10.5px; font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Sidebar section label */
+  .s-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
+  /* Contact */
+  .contact-list { display: flex; flex-direction: column; gap: 10px; }
+  .c-item {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-size: 11.5px; color: var(--ink-mid); line-height: 1.45;
+  }
+  .c-item svg { flex-shrink: 0; margin-top: 1px; color: var(--accent); }
+
+  /* Skills */
+  .skill-item { margin-bottom: 13px; }
+  .skill-name {
+    font-size: 11.5px; font-weight: 500; color: var(--ink-mid);
+    display: flex; justify-content: space-between; margin-bottom: 5px;
+  }
+  .skill-pct { color: var(--accent); font-weight: 600; }
+  .bar-track {
+    height: 3px; background: #ddd7cc; border-radius: 99px; overflow: hidden;
+  }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 99px; }
+
+  /* Languages */
+  .lang-item {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+  }
+  .lang-name { font-size: 11.5px; color: var(--ink-mid); font-weight: 500; }
+  .lang-dots { display: flex; gap: 4px; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: 1.5px solid var(--accent);
+  }
+  .dot.filled { background: var(--accent); }
+
+  /* ═══════════════════════ MAIN BODY ═══════════════════════ */
+  .main {
+    padding: 48px 44px 48px 40px;
+    display: flex; flex-direction: column; gap: 30px;
+  }
+
+  /* Section heading */
+  .section-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px; font-weight: 600;
+    color: var(--ink); letter-spacing: 0.3px;
+  }
+  .section-rule {
+    flex: 1; height: 1px; background: var(--rule);
+  }
+
+  /* Summary */
+  .summary-text {
+    font-size: 12.5px; line-height: 1.75;
+    color: var(--ink-mid); font-weight: 300;
+  }
+
+  /* Education timeline */
+  .edu-item { display: flex; gap: 18px; margin-bottom: 20px; }
+  .edu-item:last-child { margin-bottom: 0; }
+
+  .edu-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
+  .edu-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 2px solid var(--accent); background: var(--page-bg);
+    flex-shrink: 0;
+  }
+  .edu-dot.current { background: var(--accent); }
+  .edu-line { flex: 1; width: 1px; background: var(--rule); margin-top: 4px; }
+
+  .edu-content { flex: 1; padding-bottom: 4px; }
+  .edu-top { display: flex; align-items: flex-start; justify-content: space-between; }
+  .edu-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.2;
+  }
+  .edu-year {
+    font-size: 10.5px; font-weight: 500;
+    color: var(--accent); letter-spacing: 0.5px; white-space: nowrap;
+    padding-top: 2px;
+  }
+  .edu-institution {
+    font-size: 11.5px; color: var(--accent);
+    font-weight: 500; margin: 4px 0 7px;
+    font-style: italic;
+  }
+  .edu-desc {
+    font-size: 11.5px; line-height: 1.65; color: var(--ink-soft); font-weight: 300;
+  }
+
+  /* Career Objective */
+  .objective-box {
+    background: var(--accent-lt);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 0 4px 4px 0;
+  }
+  .objective-text {
+    font-size: 12px; line-height: 1.75;
+    color: var(--ink-mid); font-weight: 300;
+    font-style: italic;
+  }
+
+  /* Strengths */
+  .strengths-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .strength-pill {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 13px;
+    background: #fff; border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .strength-icon {
+    width: 20px; height: 20px;
+    background: var(--accent-lt);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .strength-icon span { font-size: 10px; }
+  .strength-text { font-size: 11.5px; color: var(--ink-mid); font-weight: 500; }
+
+  /* Footer */
+  .cv-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-left {
+    font-size: 10px; color: var(--ink-soft); letter-spacing: 0.5px;
+  }
+  .footer-right {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px; color: var(--accent); font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <div class="sidebar-name-block">
+      <div class="monogram">EM</div>
+      <div class="full-name">Ehsan Danish<br>Meer</div>
+      <div class="title-tag">Medical Aspirant</div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <div class="s-label">Contact</div>
+      <div class="contact-list">
+        <div class="c-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Khaplu, Baltistan<br>Gilgit-Baltistan, Pakistan</span>
+        </div>
+        <div class="c-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>ehsan.danish@email.com</span>
+        </div>
+        <div class="c-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.16 1.13h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          <span>+92 XXX XXX XXXX</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Academic Skills -->
+    <div>
+      <div class="s-label">Academic Skills</div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Biology & Life Sciences</span><span class="skill-pct">92%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Chemistry (Org. & Inorg.)</span><span class="skill-pct">88%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Physics Fundamentals</span><span class="skill-pct">82%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Critical Thinking</span><span class="skill-pct">95%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Research & Documentation</span><span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div>
+      <div class="s-label">Languages</div>
+      <div class="lang-item">
+        <span class="lang-name">Balti</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Urdu</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <!-- Professional Summary -->
+    <section>
+      <div class="section-head">
+        <h2>Professional Summary</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="summary-text">
+        A focused and intellectually driven medical aspirant from Khaplu, Baltistan, currently in the final stages of preparation for the Medical and Dental College Admission Test (MDCAT). With a solid pre-medical academic foundation earned at Public School and College Skardu, and over two years of disciplined study in Bahawalpur, I bring a rare combination of scientific aptitude, analytical discipline, and a deeply rooted motivation to serve. My goal extends beyond personal achievement — I am committed to returning to my community and contributing to the healthcare infrastructure of Pakistan's underserved mountain regions, where access to quality medical care remains a critical challenge.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-head">
+        <h2>Education</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-dot current"></div>
+          <div class="edu-line"></div>
+        </div>
+        <div class="edu-content">
+          <div class="edu-top">
+            <div class="edu-title">MDCAT Preparation</div>
+            <div class="edu-year">2022 — Present</div>
+          </div>
+          <div class="edu-institution">Bahawalpur, Punjab, Pakistan</div>
+          <div class="edu-desc">Rigorous full-time preparation for the Medical and Dental College Admission Test, with intensive focus on Biology, Chemistry, Physics, and English. Consistently targeting high performance benchmarks to qualify for admission in a reputable medical institution.</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-dot"></div>
+          <div class="edu-line"></div>
+        </div>
+        <div class="edu-content">
+          <div class="edu-top">
+            <div class="edu-title">Intermediate — FSc Pre-Medical</div>
+            <div class="edu-year">2020 — 2022</div>
+          </div>
+          <div class="edu-institution">Public School and College Skardu, Gilgit-Baltistan</div>
+          <div class="edu-desc">Completed higher secondary education with a concentration in pre-medical sciences. Built strong conceptual foundations in biological sciences, organic and inorganic chemistry, and physics — core disciplines for medical studies.</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-dot"></div>
+        </div>
+        <div class="edu-content">
+          <div class="edu-top">
+            <div class="edu-title">Matriculation — SSC Science</div>
+            <div class="edu-year">2018 — 2020</div>
+          </div>
+          <div class="edu-institution">Public School and College Skardu, Gilgit-Baltistan</div>
+          <div class="edu-desc">Completed secondary education with distinction in science subjects. This period ignited a passion for medical sciences and solidified the academic discipline that continues to drive my pursuit of a career in healthcare.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strengths -->
+    <section>
+      <div class="section-head">
+        <h2>Core Strengths</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="strengths-grid">
+        <div class="strength-pill">
+          <div class="strength-icon"><span>🧠</span></div>
+          <span class="strength-text">Analytical Thinking</span>
+        </div>
+        <div class="strength-pill">
+          <div class="strength-icon"><span>🎯</span></div>
+          <span class="strength-text">Goal-Oriented Discipline</span>
+        </div>
+        <div class="strength-pill">
+          <div class="strength-icon"><span>🤝</span></div>
+          <span class="strength-text">Community Awareness</span>
+        </div>
+        <div class="strength-pill">
+          <div class="strength-icon"><span>📚</span></div>
+          <span class="strength-text">Academic Perseverance</span>
+        </div>
+        <div class="strength-pill">
+          <div class="strength-icon"><span>💬</span></div>
+          <span class="strength-text">Multilingual Communication</span>
+        </div>
+        <div class="strength-pill">
+          <div class="strength-icon"><span>🔬</span></div>
+          <span class="strength-text">Scientific Curiosity</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Objective -->
+    <section>
+      <div class="section-head">
+        <h2>Career Objective</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="objective-box">
+        <p class="objective-text">
+          To secure admission at a reputable medical college through excellence in the MDCAT, and to pursue specialization in medicine — with a particular focus on high-altitude and remote-area health challenges. Ultimately, I aspire to return to Baltistan as a qualified physician, to establish or contribute to accessible healthcare facilities that serve mountain communities, and to mentor the next generation of medical professionals from underserved regions of Pakistan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="cv-footer">
+      <span class="footer-left">Curriculum Vitae · Ehsan Danish Meer · 2025</span>
+      <span class="footer-right">"Where geography ends, medicine begins."</span>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
